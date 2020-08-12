@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Input from './Input'
+
 const H1 = styled.h1`
     background: #1f1f1f;
     margin: 0;
@@ -11,7 +13,10 @@ const H1 = styled.h1`
 
 function Header(props) {
     return (
-        <H1>Reddit API App</H1>
+        <>
+            <H1>Reddit API App</H1>
+            <Input />
+        </>
     )
 }
 
