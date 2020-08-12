@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    background: #fff;
-    border: 1px solid black;
-    margin: 1% auto;
+    background: #333;
+    /* box-shadow: 0 0 4px 1px #dadada; */
+    border-radius: 3px;
+    margin: 1%;
+    padding: 1%;
     text-align: center;
-    width: 50%;
+    flex-basis: 28%;
 
     h1 {
         font-size: 24px;
@@ -14,14 +16,21 @@ const Container = styled.div`
     }
 
     h4 {
-        font-size: 18px;
+        font-size: 12px;
         margin: 2% 0;
+        color: #b3b3b3;
+        font-weight: 100;
     }
 
     img {
         width: 90%;
         margin: 0 auto;
         border-radius: 8px;
+    }
+
+    p.none {
+        background: #463333;
+        color: black;
     }
 `
 
@@ -30,8 +39,8 @@ function Post(props) {
         <Container>
             <h1>{props.data.title}</h1>
             <h4>{props.data.author}</h4>
-            <img src={props.data.url} />
-            <p><i class="fas fa-thumbs-up"></i> {props.data['upvote_ratio'] * 100}%</p>
+            {props.data.url.substr(-4, 1) === '.' ? <img src={props.data.url} /> : <p className="none">No Image Available For This Post</p>}
+            <p style={{ color: '#516975' }}><i className="fas fa-thumbs-up"></i> {props.data['upvote_ratio'] * 100}%</p>
         </Container>
     )
 }
